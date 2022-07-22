@@ -20,7 +20,8 @@ jobs:
                   DERIV_API_TOKEN: ${{ secrets.DERIV_API_TOKEN }}
                   DERIV_APP_ID: ${{ secrets.DERIV_APP_ID }}
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  vercel_preview_url: ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}
+                  env:
+                    vercel_preview_url: ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}
             - name: Comment on pull request with App ID and URLs
               if: steps.generate_app_id.outputs.should_post_comment
               uses: marocchino/sticky-pull-request-comment@v2
