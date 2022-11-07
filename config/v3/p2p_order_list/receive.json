@@ -257,6 +257,14 @@
                                     1
                                 ]
                             },
+                            "is_seen": {
+                                "description": "`1` if the latest order changes have been seen by the current client, otherwise `0`.",
+                                "type": "integer",
+                                "enum": [
+                                    1,
+                                    0
+                                ]
+                            },
                             "local_currency": {
                                 "description": "Local currency for this order.",
                                 "type": "string",
@@ -358,13 +366,25 @@
                                     "sell"
                                 ]
                             },
+                            "verification_lockout_until": {
+                                "description": "If blocked for too many failed verification attempts, the epoch time that the block will end.",
+                                "type": "integer"
+                            },
+                            "verification_next_request": {
+                                "description": "If a verification request has already been made, the epoch time that another verification request can be made.",
+                                "type": "integer"
+                            },
                             "verification_pending": {
-                                "description": "Indicates that an email has been sent to verify confirmation of the order.",
+                                "description": "Indicates that the seller in the process of confirming the order.",
                                 "type": "integer",
                                 "enum": [
                                     0,
                                     1
                                 ]
+                            },
+                            "verification_token_expiry": {
+                                "description": "Epoch time that the current verification token will expire.",
+                                "type": "integer"
                             }
                         }
                     }

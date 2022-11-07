@@ -1,63 +1,26 @@
 import React from 'react';
-const Endpoint = React.lazy(() => import('./Endpoint'));
-const HomePage = React.lazy(() => import('./Homepage'));
-const Docs = React.lazy(() => import('./Docs'));
-const ApiExplorer = React.lazy(() => import('./ApiExplorer'));
-const AppRegistration = React.lazy(() => import('./AppRegistration'));
-const ApiGuide = React.lazy(() => import('./ApiGuide'));
-const Faq = React.lazy(() => import('./Faq'));
-const Json = React.lazy(() => import('./JsonSchemas'));
-const BugBounty = React.lazy(() => import('./Bounty'));
-const Quickstart = React.lazy(() => import('./Quickstart'));
+import { sidebar_routes } from './routes-data/sidebar-routes';
+import { RenderOfficialDomainContents } from './components/utility/RenderOfficialDomainContents/RenderOfficialDomainContents';
+const Endpoint = React.lazy(() => import('./components/endpoint/Endpoint/Endpoint'));
+const HomePage = React.lazy(() => import('./components/homepage/Homepage/Homepage'));
+const ApiExplorer = React.lazy(() => import('./components/playground/ApiExplorer/ApiExplorer'));
+const AppRegistration = React.lazy(() => import('./components/app-registration/AppRegistration/AppRegistration'));
 
 export const routes = [
     {
         path: '/',
         element: <HomePage />,
     },
-    {
-        path: 'docs',
-        element: <Docs />,
-        children: [
-            {
-                path: '',
-                element: <Quickstart />,
-            },
-            {
-                path: 'app-registration',
-                element: <AppRegistration />,
-            },
-            {
-                path: 'api-explorer',
-                element: <ApiExplorer />,
-            },
-            {
-                path: 'api-guide',
-                element: <ApiGuide />,
-            },
-            {
-                path: 'faq',
-                element: <Faq />,
-            },
-            {
-                path: 'json-schemas',
-                element: <Json />,
-            },
-            {
-                path: 'bug-bounty',
-                element: <BugBounty />,
-            },
-        ],
-    },
+    ...sidebar_routes,
     {
         path: 'api-explorer',
-        element: <Docs />,
-        children: [
-            {
-                path: '',
-                element: <ApiExplorer />,
-            },
-        ],
+        element: <ApiExplorer />,
+        label: 'API Explorer',
+    },
+    {
+        path: 'app-registration',
+        element: <RenderOfficialDomainContents Component={AppRegistration} />,
+        label: 'Application registration',
     },
     {
         path: 'endpoint',

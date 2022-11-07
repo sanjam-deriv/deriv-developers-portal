@@ -28,6 +28,7 @@
                 "id",
                 "is_incoming",
                 "is_reviewable",
+                "is_seen",
                 "local_currency",
                 "payment_info",
                 "price",
@@ -220,6 +221,14 @@
                         1
                     ]
                 },
+                "is_seen": {
+                    "description": "`1` if the latest order changes have been seen by the current client, otherwise `0`.",
+                    "type": "integer",
+                    "enum": [
+                        1,
+                        0
+                    ]
+                },
                 "local_currency": {
                     "description": "Local currency for this order.",
                     "type": "string",
@@ -320,6 +329,26 @@
                                         "ewallet",
                                         "other"
                                     ]
+                                },
+                                "used_by_adverts": {
+                                    "description": "IDs of adverts that use this payment method.",
+                                    "type": [
+                                        "array",
+                                        "null"
+                                    ],
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "used_by_orders": {
+                                    "description": "IDs of orders that use this payment method.",
+                                    "type": [
+                                        "array",
+                                        "null"
+                                    ],
+                                    "items": {
+                                        "type": "string"
+                                    }
                                 }
                             }
                         }
