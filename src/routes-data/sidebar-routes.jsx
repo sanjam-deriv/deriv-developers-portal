@@ -108,7 +108,7 @@ const ImplementDropdown = (props) => {
     return (
         <div className={styles.dropdown}>
             <div className={`${styles.dropdownBtn} ${isActive ? styles.boldText : ''}`} onClick={handleToggleDropdown}>
-                Implement Now
+                <span>Implement Now</span>
                 <span className={`${styles.arrow} ${isActive ? styles.down : ''}`} />
             </div>
             {isActive && (
