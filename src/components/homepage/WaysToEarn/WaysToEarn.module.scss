@@ -3,33 +3,33 @@
 
     .waysWrapper {
         width: 100%;
-        margin-bottom: 30px;
+        margin-bottom: 3rem;
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
+        align-items: var(--text-align-center);
         justify-content: space-around;
 
         .ways {
             display: flex;
-            align-items: center;
+            align-items: var(--text-align-center);
             width: unset;
-            max-width: 628px;
-            margin: 20px 12px;
-            padding: 16px;
+            max-width: 62.8rem;
+            margin: 2rem 1.2rem;
+            padding: 1.6rem;
 
             p {
                 margin-bottom: 0;
-                margin-left: 16px;
+                margin-left: 1.6rem;
             }
 
             .checklistIcon {
                 background-image: url(/img/checklist-icon-red.svg);
                 background-repeat: no-repeat;
                 background-position: center;
-                width: 32px;
-                height: 32px;
-                background-size: 32px 32px;
-                padding-right: 16px;
+                width: 3.2rem;
+                height: 3.2rem;
+                background-size: 3.2rem 3.2rem;
+                padding-right: 1.6rem;
             }
         }
     }
@@ -43,7 +43,7 @@
             max-width: 32.8rem;
 
             >div {
-                padding-right: 24px;
+                padding-right: 2.4rem;
             }
         }
     }
