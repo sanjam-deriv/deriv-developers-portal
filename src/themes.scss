@@ -9,6 +9,10 @@
     scroll-margin-top: 100px;
 }
 
+html * {
+    font-size: var(--text-size-s);
+}
+
 :host,
 :root {
     // Brand colors
@@ -99,10 +103,6 @@
     // Spinner
     --spinner-height: 100px;
     --spinner-width: 100px;
-}
-
-a, p, span, b, label, strong {
-    font-size: var(--text-size-s);
 }
 
 @mixin header {
