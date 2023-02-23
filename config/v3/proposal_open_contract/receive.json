@@ -345,6 +345,10 @@
                         1446629000
                     ]
                 },
+                "growth_rate": {
+                    "description": "[Only for accumulator] Growth rate of an accumulator contract.",
+                    "type": "number"
+                },
                 "high_barrier": {
                     "description": "High barrier of the contract (if any).",
                     "type": "string",
@@ -528,6 +532,10 @@
                     "description": "[Only for lookback trades] Multiplier applies when calculating the final payoff for each type of lookback. e.g. (Exit spot - Lowest historical price) * multiplier = Payout",
                     "type": "number"
                 },
+                "number_of_contracts": {
+                    "description": "[Only for vanilla options] The implied number of contracts",
+                    "type": "number"
+                },
                 "payout": {
                     "description": "Payout value of the contract.",
                     "type": "number",
@@ -612,6 +620,13 @@
                 "tick_count": {
                     "description": "Only for tick trades, number of ticks",
                     "type": "integer"
+                },
+                "tick_passed": {
+                    "description": "[Only for accumulator] Number of ticks passed since entry_tick",
+                    "type": "integer",
+                    "examples": [
+                        500
+                    ]
                 },
                 "tick_stream": {
                     "description": "Tick stream from entry to end time.",

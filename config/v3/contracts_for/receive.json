@@ -62,6 +62,10 @@
                                     "euro_non_atm"
                                 ]
                             },
+                            "barrier_choices": {
+                                "description": "[Only for Vanilla] Barrier Choices",
+                                "type": "array"
+                            },
                             "barriers": {
                                 "description": "Number of barriers.",
                                 "type": "number",
@@ -153,6 +157,10 @@
                                     }
                                 },
                                 "minItems": 1
+                            },
+                            "growth_rate_range": {
+                                "description": "Growth rate range.",
+                                "type": "array"
                             },
                             "high_barrier": {
                                 "description": "High barrier Details.",

@@ -31,6 +31,10 @@
                         5.14
                     ]
                 },
+                "barrier_choices": {
+                    "description": "[Only for vanilla options] The choices of predefined strike price for client to choose",
+                    "type": "array"
+                },
                 "cancellation": {
                     "description": "Contains information about contract cancellation option.",
                     "type": "object",
@@ -52,6 +56,64 @@
                         "null",
                         "number"
                     ]
+                },
+                "contract_details": {
+                    "description": "Contains contract information. (Only applicable for accumulator).",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "high_barrier": {
+                            "description": "High barrier calculated based on current spot",
+                            "type": "string",
+                            "pattern": "^[+-]?[0-9]+\\.?[0-9]*$",
+                            "examples": [
+                                42.123
+                            ]
+                        },
+                        "last_tick_epoch": {
+                            "description": "Epoch of last tick considered for stat chart",
+                            "type": "integer"
+                        },
+                        "low_barrier": {
+                            "description": "Low barrier calculated based on current spot",
+                            "type": "string",
+                            "pattern": "^[+-]?[0-9]+\\.?[0-9]*$",
+                            "examples": [
+                                42.123
+                            ]
+                        },
+                        "maximum_payout": {
+                            "description": "Maximum payout that user can get out of a contract, contract will close automatically if payout reaches this number",
+                            "type": "number",
+                            "examples": [
+                                1000.59
+                            ]
+                        },
+                        "maximum_ticks": {
+                            "description": "Maximum duration that a contract can last, contract will close automatically after this number of ticks",
+                            "type": "integer",
+                            "examples": [
+                                500
+                            ]
+                        },
+                        "tick_size_barrier": {
+                            "description": "Tick size barrier for Accumulator contracts",
+                            "type": "number",
+                            "examples": [
+                                4.9358253e-05
+                            ]
+                        },
+                        "ticks_stayed_in": {
+                            "description": "An array of numbers  to build a stat chart - each number represents the duration that spot stayed between barries",
+                            "type": "array",
+                            "items": {
+                                "type": "integer",
+                                "examples": [
+                                    50
+                                ]
+                            }
+                        }
+                    }
                 },
                 "date_expiry": {
                     "description": "The end date of the contract.",
@@ -173,8 +235,20 @@
                     "description": "Example: Win payout if Random 100 Index is strictly higher than entry spot at 15 minutes after contract start time.",
                     "type": "string"
                 },
+                "max_stake": {
+                    "description": "[Only for vanilla options] Maximum stakes allowed",
+                    "type": "number"
+                },
+                "min_stake": {
+                    "description": "[Only for vanilla options] Minimum stakes allowed",
+                    "type": "number"
+                },
                 "multiplier": {
                     "description": "[Only for lookback trades] Multiplier applies when calculating the final payoff for each type of lookback. e.g. (Exit spot - Lowest historical price) * multiplier = Payout",
+                    "type": "number"
+                },
+                "number_of_contracts": {
+                    "description": "[Only for vanilla options] The implied number of contracts",
                     "type": "number"
                 },
                 "payout": {

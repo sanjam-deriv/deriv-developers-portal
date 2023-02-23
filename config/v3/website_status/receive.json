@@ -15,7 +15,6 @@
             "additionalProperties": false,
             "required": [
                 "api_call_limits",
-                "crypto_config",
                 "currencies_config"
             ],
             "properties": {
@@ -123,30 +122,17 @@
                         }
                     }
                 },
+                "broker_codes": {
+                    "description": "List of all available broker codes.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "uniqueItems": true
+                },
                 "clients_country": {
                     "description": "Country code of connected IP",
                     "type": "string"
-                },
-                "crypto_config": {
-                    "description": "Provides minimum withdrawal for all crypto currency in USD",
-                    "type": "object",
-                    "minProperties": 0,
-                    "patternProperties": {
-                        "^[a-zA-Z0-9]{2,20}$": {
-                            "description": "Crypto-currency code",
-                            "type": "object",
-                            "additionalProperties": false,
-                            "required": [
-                                "minimum_withdrawal"
-                            ],
-                            "properties": {
-                                "minimum_withdrawal": {
-                                    "description": "Minimum withdrawal for the currency in USD.",
-                                    "type": "number"
-                                }
-                            }
-                        }
-                    }
                 },
                 "currencies_config": {
                     "description": "Available currencies and their information",
@@ -251,6 +237,10 @@
                                                 }
                                             ]
                                         },
+                                        "limits_derivez": {
+                                            "description": "Range of allowed amount for transfer between derivez accounts.",
+                                            "type": "object"
+                                        },
                                         "limits_dxtrade": {
                                             "description": "Range of allowed amount for transfer between dxtrade accounts.",
                                             "type": "object"
@@ -323,6 +313,7 @@
                         "cancellation_count_period",
                         "cancellation_grace_period",
                         "cancellation_limit",
+                        "cross_border_ads_enabled",
                         "disabled",
                         "feature_level",
                         "fixed_rate_adverts",
@@ -361,6 +352,14 @@
                         "cancellation_limit": {
                             "description": "A buyer will be temporarily barred after marking this number of cancellations within cancellation_period.",
                             "type": "integer"
+                        },
+                        "cross_border_ads_enabled": {
+                            "description": "When 0, only exchanges in local currency are allowed for P2P advertiser.",
+                            "type": "integer",
+                            "enum": [
+                                0,
+                                1
+                            ]
                         },
                         "disabled": {
                             "description": "When 1, the P2P service is unavailable.",
